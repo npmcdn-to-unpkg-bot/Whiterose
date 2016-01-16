@@ -1,0 +1,24 @@
+@font-face {
+	font-family: "micrac";
+	src: url("../fonts/MicraC-Bold.otf");
+}
+@font-face {
+	font-family: "MullerRegular";
+	src: url("../fonts/Muller-Regular.otf");
+}
+@font-face {
+	font-family: "MullerThin";
+	src: url("../fonts/Muller-Thin.otf");
+}
+@font-face {
+	font-family: "WebSymbols";
+	src: url("../fonts/WebSymbolsLiga-Regular.otf");
+}
+@font-face {
+	font-family: "MullerLight";
+	src: url("../fonts/Muller-Light.otf");
+}
+@font-face {
+	font-family: "RobotoCondensed";
+	src: url("../fonts/RobotoCondensed/RobotoCondensed-Regular.ttf");
+}
