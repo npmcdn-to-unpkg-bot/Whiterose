@@ -21,14 +21,19 @@
   "homepage": "https://github.com/Bezzz23/Whiterose#readme",
   "devDependencies": {
     "browser-sync": "^2.11.0",
+    "grunt-pagespeed": "^2.0.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
+    "gulp-grunt": "^0.5.3",
+    "gulp-imagemin": "^2.4.0",
     "gulp-less": "^3.0.5",
     "gulp-minify-css": "^1.2.3",
     "gulp-notify": "^2.2.0",
-    "gulp-plato": "^1.0.2",
     "gulp-rename": "^1.2.2",
-    "gulp-util": "^3.0.7"
+    "gulp-rigger": "^0.5.8",
+    "gulp-rimraf": "^0.2.0",
+    "imagemin-pngquant": "^4.2.0",
+    "rimraf": "^2.5.0"
   }
 }

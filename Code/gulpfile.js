@@ -1,47 +1,97 @@
 var gulp = require('gulp'),
 autoprefixer = require('gulp-autoprefixer'),
 minifyCSS = require('gulp-minify-css'),
+imagemin = require('gulp-imagemin'),
+pngquant = require('imagemin-pngquant'),
 rename = require('gulp-rename');
 var concat = require ('gulp-concat');
 var less = require('gulp-less');
-var gutil = require('gulp-util');
-var plato = require('gulp-plato');
-var browserSync = require('browser-sync').create();
-gulp.task('server', ['less'], function() {
+var rigger = require('gulp-rigger');
+var uglify = require('gulp-uglify');
+var rimraf = require('rimraf');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
+var config = {
+    server: {
+        baseDir: "./build"
+    },
+    tunnel: false,
+    host: 'localhost',
+    port: 9000,
+    logPrefix: "Frontend_Devil"
+};
 
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
+gulp.task('webserver', function () {
+    browserSync(config);
+});
+gulp.task('styles', function () {
+    return gulp.src('src/css/main.less')
+        .pipe(less())
+        .pipe(autoprefixer('last 10 versions', 'ie 9'))
+        .pipe(gulp.dest('build/css/'))
+        .pipe(rename({suffix: ".min"}))
+        .pipe(minifyCSS({keepBreaks: false})) 
+        .pipe(gulp.dest('build/css/'))
+        .pipe(reload({stream: true}));
+});
 
-    gulp.watch("*less/*.less", ['less']);
-    gulp.watch("*.*").on('change', browserSync.reload);
-    gulp.watch("css/*.css").on('change', browserSync.reload);
+gulp.task('html', function () {
+    gulp.src('src/*.html') //Выберем файлы по нужному пути
+        .pipe(rigger()) //Прогоним через rigger
+        .pipe(gulp.dest('build/')) //Выплюнем их в папку build
+        .pipe(reload({stream: true}));
+});
+
+gulp.task('js', function () {
+    gulp.src('src/js/main.js') //Выберем файлы по нужному пути
+        .pipe(rigger()) //Прогоним через rigger
+        .pipe(gulp.dest('build/js/'))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(uglify())
+        .pipe(gulp.dest('build/js/')) //Выплюнем их в папку build
+        .pipe(reload({stream: true}));
+});
+gulp.task('imagesmin', function () {
+    gulp.src('src/img/**/*.*') //Выберем наши картинки
+        .pipe(imagemin({
+            progressive: true
+        }))
+        .pipe(gulp.dest('build/img/')) //И бросим в build
+        .pipe(reload({stream: true}));
+});
+gulp.task('images', function () {
+        gulp.src('src/img/**/*.*') //Выберем наши картинки
+        .pipe(gulp.dest('build/img/')) //И бросим в build
+
+        .pipe(reload({stream: true}));
+
 });
 
 
-gulp.task('less', function () {
-return gulp.src('less/*.less')
-.pipe(less({compress: true}).on('error', gutil.log))
-.pipe(autoprefixer('last 10 versions', 'ie 9'))
-.pipe(gulp.dest('css'))
-.pipe(rename({suffix: ".min"}))
-.pipe(minifyCSS({keepBreaks: false})) 
-.pipe(gulp.dest('css'));
+gulp.task('clean', function (cb) {
+    rimraf('./build', cb);
 });
 
-
-gulp.task('test', function () {
-    return gulp.src('app.js')
-        .pipe(plato('report', {
-            jshint: {
-                options: {
-                    strict: true
-                }
-            },
-            complexity: {
-                trycatch: true
-            }
-        }));
+gulp.task('fonts', function() {
+    gulp.src('src/fonts/**/*.*')
+        .pipe(gulp.dest('build/fonts'))
 });
+
+gulp.task('build', [
+    'html',
+    'styles',
+    'fonts',
+    'images',
+    'js'
+]);
+
+
+gulp.task('watch', function(){
+    gulp.watch('src/**/*.html', ['html']);
+    gulp.watch('src/css/main.less', ['styles']);
+    gulp.watch('src/fonts/**/*.*', ['fonts']);
+    gulp.watch('src/**/*.js', ['js']);
+    gulp.watch('src/img/**/*.*', ['images']);
+});
+
+gulp.task('default', ['build', 'webserver', 'watch']);
