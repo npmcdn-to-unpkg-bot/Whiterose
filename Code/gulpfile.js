@@ -36,32 +36,32 @@ gulp.task('styles', function () {
 });
 
 gulp.task('html', function () {
-    gulp.src('src/*.html') //Выберем файлы по нужному пути
-        .pipe(rigger()) //Прогоним через rigger
-        .pipe(gulp.dest('build/')) //Выплюнем их в папку build
+    gulp.src('src/*.html')
+        .pipe(rigger())
+        .pipe(gulp.dest('build/'))
         .pipe(reload({stream: true}));
 });
 
 gulp.task('js', function () {
-    gulp.src('src/js/main.js') //Выберем файлы по нужному пути
-        .pipe(rigger()) //Прогоним через rigger
+    gulp.src('src/js/main.js')
+        .pipe(rigger())
         .pipe(gulp.dest('build/js/'))
         .pipe(rename({suffix: '.min'}))
         .pipe(uglify())
-        .pipe(gulp.dest('build/js/')) //Выплюнем их в папку build
+        .pipe(gulp.dest('build/js/'))
         .pipe(reload({stream: true}));
 });
 gulp.task('imagesmin', function () {
-    gulp.src('src/img/**/*.*') //Выберем наши картинки
+    gulp.src('src/img/**/*.*')
         .pipe(imagemin({
             progressive: true
         }))
-        .pipe(gulp.dest('build/img/')) //И бросим в build
+        .pipe(gulp.dest('build/img/'))
         .pipe(reload({stream: true}));
 });
 gulp.task('images', function () {
-        gulp.src('src/img/**/*.*') //Выберем наши картинки
-        .pipe(gulp.dest('build/img/')) //И бросим в build
+        gulp.src('src/img/**/*.*')
+        .pipe(gulp.dest('build/img/'))
 
         .pipe(reload({stream: true}));
 
