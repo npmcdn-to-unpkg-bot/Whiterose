@@ -20,7 +20,7 @@
 	<div class="container-fluid">
 			<div class="row header">
 				<div class="col-md-3">
-					<div class="header__logo header__logo--main">
+					<div class="header__logo">
 						<img src="img/logo.png">
 						<span>
 							Белая роза
@@ -30,11 +30,11 @@
 				<div class="col-md-7 ">
 					<nav class="header__mainmenu">
 						<ul>
-							<li><a class="active" href="#">Клиника</a></li>
-							<li><a href="#">Услуги</a></li>
-							<li><a href="#">Статьи</a></li>
-							<li><a href="#">Видео</a></li>
-							<li><a href="#">Контакты</a></li>
+							<li><a class="active" href="clinic.html">Клиника</a></li>
+							<li><a href="services.html">Услуги</a></li>
+							<li><a href="articles.html">Статьи</a></li>
+							<li><a href="video.html">Видео</a></li>
+							<li><a href="contacts.html">Контакты</a></li>
 						</ul>
 					</nav>
 				</div>
@@ -51,13 +51,13 @@
 		</div>
 
 	<div class="container-fluid">
-		<div id="clinic" class="carousel slide" data-ride="carousel">
+		<div id="clinic" class="carousel slide" data-ride="carousel" data-interval="false"  data-wrap="false">
   <!-- Indicators -->
   
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item firstSlide" id="1">
+    <div class="item firstSlide active" id="1">
     	<div class="container-fluid">
     		<div class="firstSlide__header">
     			<span>«Белая</span> роза»
@@ -66,11 +66,11 @@
     			Главной целью работы Центра «Белая роза» является бесплатная комплексная диагностика онкологических заболеваний женской репродуктивной системы и молочных желез, привлечение внимания женщин к своему здоровью, воспитание ответственности за него, формирование культуры профилактических осмотров, включая обучение навыкам самообследования.
     		</div>
     		<div class="firstSlide__photos">
-    			<img src="img/photoclinic.png">
-    			<img src="img/photoclinic.png">
-    			<img src="img/photoclinic.png">
-    			<img src="img/photoclinic.png">
-    			<img src="img/photoclinic.png">
+    			<a class="fancybox" rel="newgroup" href="img/test.png"><img src="img/photoclinic.png"></a>
+    			<a class="fancybox" rel="newgroup" href="img/test.png"><img src="img/photoclinic.png"></a>
+    			<a class="fancybox" rel="newgroup" href="img/test.png"><img src="img/photoclinic.png"></a>
+    			<a class="fancybox" rel="newgroup" href="img/test.png"><img src="img/photoclinic.png"></a>
+    			<a class="fancybox" rel="newgroup" href="img/test.png"><img src="img/photoclinic.png"></a>
     		</div>
 			<a href="#clinic" role="button" data-slide="next" class="item-button">Дальше</a>
     	</div>
@@ -134,7 +134,7 @@
         
       </div>
     </div>
-    <div class="item fourthSlide active">
+    <div class="item fourthSlide" id="4">
       <div class="container-fluid">
           <div class="row">
             <div class="col-lg-4 text-left col-md-offset-1">
@@ -176,9 +176,9 @@
                 Мы всегда рады вам помочь!
               </div>
               <div class="fifthSlide__photos">
-                  <img src="img/photoclinic.png">
-                  <img src="img/photoclinic.png">
-                  <img src="img/photoclinic.png">
+                  <a class="fancybox" rel="group" href="img/test.png"><img src="img/test.png"></a>
+                  <a class="fancybox" rel="group" href="img/photoclinic.png"><img src="img/photoclinic.png"></a>
+                  <a class="fancybox" rel="group" href="img/photoclinic.png"><img src="img/photoclinic.png"></a>
               </div>
               <div class="fifthSlide__lightboxLink">
                 Для увеличения нажмите на изображения
@@ -198,7 +198,7 @@
 
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#clinic" role="button" data-slide="prev">
+  <a class="left carousel-control disabled" href="#clinic" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left glyphicon-triangle-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
@@ -226,16 +226,39 @@
 					Южно-Сахалинск, ул. Курильская, 42-а 
 				</div>
 				<div class="footer__feedback">
-					<a href="#">Обратная связь</a>
+					<a href="#modal-feedback">Обратная связь</a>
 				</div>
 			</div>
 			<div class="col-md-4 text-right">
-				<div class="footer__webalt">Веб альтернатива</div>
 				<img class="footer__webaltlogo" src="img/webaltlogo.png">
+				<div class="footer__webalt">Сайт разработан<br>WEB-ALTERNATIVE</div>
 			</div>
 			</div>
 	
 		</div>
+	
+	
+		<div class="modal" id="modal-feedback" aria-hidden="true">
+	            <a href="#close" class="modalBlack"></a>
+	
+	            <div class="modalDialog modalDialog--feedback">
+	                <div class="modal-body text-center">
+	                    <div class="modalDialog__header text-center">
+	                    	Спрашивайте мы ответим
+	                    </div>
+	                    <input type="text" class="modalDialog__input" placeholder="Представьтесь пожалуйста">
+	                    <input type="text" class="modalDialog__input" placeholder="Электронная почта">
+	                    <div class="modalDialog__quest">
+	                    	Ваш вопрос
+	                    </div>
+	                    <textarea class="modalDialog__textarea"></textarea>
+	                    <button type="submit" class="modalDialog__btn">Отправить</button>
+	
+	                </div>
+					<a href="#close" class="modalDialog__closed"></a>
+	            </div>
+	
+	   	</div>
 	<div class="hidden"></div>
 
 	<div class="loader">

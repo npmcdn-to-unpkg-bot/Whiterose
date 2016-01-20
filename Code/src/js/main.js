@@ -1,6 +1,9 @@
 
-//= ../libs/jquery/jquery-1.11.2.min.js
-//= ../libs/bootstrap/js/bootstrap.js
+//= ../libs/jquery/jquery-2.2.0.min.js
+//= ../libs/bootstrap/js/bootstrap.min.js
+//= ../libs/fancybox/source/jquery.fancybox.pack.js
+//= ../libs/masonry/dist/masonry.pkgd.min.js
+//= ../libs/slick/slick/slick.js
 
 $(document).ready(function() {
 
@@ -45,6 +48,15 @@ $(document).ready(function() {
 
 	};
 	*/
+	$('.videocarousel').slick({
+		slidesToShow: 6,
+		infinite: false,
+	});
+	$(".fancybox").fancybox();
+	$('.articles__wrapper').masonry({
+  		itemSelector: '.miniarticle',
+  		columnWidth: '.miniarticle',
+	});
 	$("img, a").on("dragstart", function(event) { event.preventDefault(); });
 
 	$('#maincarousel').on('slide.bs.carousel', function (ev) {
@@ -77,7 +89,21 @@ $(document).ready(function() {
   		}
 	});
 
-
+	$('#clinic').on('slide.bs.carousel', function (ev) {
+  		var id = ev.relatedTarget.id;
+  		switch (id) {
+    		case "1":
+      			$('#clinic .carousel-control .glyphicon-chevron-left').css('color', '#eaba9a');
+      		break;
+      		case "5":
+    			$('#clinic .carousel-control .glyphicon-chevron-right').css('color', '#eaba9a');
+    		break;
+    		default:
+    			$('#clinic .carousel-control .glyphicon-chevron-left').css('color', '#25b087');
+    			$('#clinic .carousel-control .glyphicon-chevron-right').css('color', '#25b087');
+      		//the id is none of the above
+  		}
+	});
 
 	//Дополнительные телефоны
 
@@ -99,16 +125,36 @@ $(document).ready(function() {
 			);
 	}));
 
+	$(".services li").on("click", (function() {
+		$(this).find('.services__text').slideToggle("fast", function (){
+			if ($(this).css('display') == 'none') {
+             $(this).parent().find('a').css('color', '#bb815b');
+             $(this).parent().find('span').css('color', '#bb815b');
+             $(this).parent().find('span').css('border', '1px solid #bb815b');   	
+         	} else {
+         	$(this).parent().find('a').css('color', '#25b087');
+             $(this).parent().find('span').css('color', '#25b087');
+             $(this).parent().find('span').css('border', '1px solid #25b087');   
+            };
+		});
+        
+            
+	}));
+
 	//
-	$('#clinic').carousel({
-    	interval: false
-	}); 
+
+	$('.geography__point span').on("click", (function() {
+		$(this).parent().find('.descriptionPoint').css('display','block');
+	}));
+	$('.descriptionPoint__close').on("click", (function() {
+		$(this).parent().css('display','none');
+	}));
+
+
+
+
+
+	
 	
 });
 
-$(window).load(function() {
-
-	/*$(".loader_inner").fadeOut();
-	$(".loader").delay(400).fadeOut("slow");
-	*/
-});

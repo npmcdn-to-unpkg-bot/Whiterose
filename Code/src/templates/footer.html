@@ -15,13 +15,36 @@
 				Южно-Сахалинск, ул. Курильская, 42-а 
 			</div>
 			<div class="footer__feedback">
-				<a href="#">Обратная связь</a>
+				<a href="#modal-feedback">Обратная связь</a>
 			</div>
 		</div>
 		<div class="col-md-4 text-right">
-			<div class="footer__webalt">Веб альтернатива</div>
 			<img class="footer__webaltlogo" src="img/webaltlogo.png">
+			<div class="footer__webalt">Сайт разработан<br>WEB-ALTERNATIVE</div>
 		</div>
 		</div>
 
 	</div>
+
+
+	<div class="modal" id="modal-feedback" aria-hidden="true">
+            <a href="#close" class="modalBlack"></a>
+
+            <div class="modalDialog modalDialog--feedback">
+                <div class="modal-body text-center">
+                    <div class="modalDialog__header text-center">
+                    	Спрашивайте мы ответим
+                    </div>
+                    <input type="text" class="modalDialog__input" placeholder="Представьтесь пожалуйста">
+                    <input type="text" class="modalDialog__input" placeholder="Электронная почта">
+                    <div class="modalDialog__quest">
+                    	Ваш вопрос
+                    </div>
+                    <textarea class="modalDialog__textarea"></textarea>
+                    <button type="submit" class="modalDialog__btn">Отправить</button>
+
+                </div>
+				<a href="#close" class="modalDialog__closed"></a>
+            </div>
+
+   	</div>

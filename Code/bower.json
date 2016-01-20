@@ -1,0 +1,21 @@
+{
+  "name": "whiterose",
+  "description": "project for webalt",
+  "main": "index.js",
+  "authors": [
+    "Bezzz"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "rose"
+  ],
+  "homepage": "https://github.com/Bezzz23/Whiterose",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
