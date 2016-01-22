@@ -8008,6 +8008,12 @@ fieldset[disabled] .btn-danger.active {
 .mainpage .header__logo {
   color: #656565;
 }
+.geographya {
+  background: #fbf0ea;
+}
+.videobody {
+  background: #faf6f3;
+}
 .articlespage {
   background-image: url(../img/articles-bg.png);
   background-size: cover;
@@ -8092,9 +8098,9 @@ fieldset[disabled] .btn-danger.active {
 }
 .shape {
   position: absolute;
-  width: 70%;
-  left: 15%;
-  top: -30%;
+  width: 95%;
+  left: 3%;
+  top: -20%;
 }
 #maincarousel .item {
   height: 600px;
@@ -8141,7 +8147,7 @@ fieldset[disabled] .btn-danger.active {
           border-radius: 17px;
 }
 .carousel-indicators {
-  bottom: 0;
+  bottom: -65px;
 }
 .carousel-indicators li {
   border: 1px solid #bb815b;
@@ -8160,6 +8166,7 @@ fieldset[disabled] .btn-danger.active {
 }
 #maincarousel {
   margin-top: 150px;
+  margin-bottom: 250px;
 }
 .carousel-control {
   background: none !important;
@@ -8184,6 +8191,9 @@ width: 7%;
 padding-top:350px;
  }
 */
+#clinic {
+  margin-top: 85px;
+}
 .footer {
   margin-bottom: 40px;
   margin-top: 70px;
@@ -8261,7 +8271,6 @@ padding-top:350px;
   color: #fa8c3c;
 }
 .firstSlide {
-  margin-top: 100px;
   text-align: left !important;
   padding-left: 50px;
   padding-bottom: 10px !important;
@@ -8295,7 +8304,6 @@ padding-top:350px;
   margin-left: 60px;
 }
 .secondSlide {
-  margin-top: 100px;
   text-align: left !important;
   padding-left: 50px;
   padding-bottom: 10px !important;
@@ -8318,7 +8326,6 @@ padding-top:350px;
   margin-bottom: 73px;
 }
 .thirdSlide img {
-  margin-top: 110px;
   margin-bottom: 110px;
 }
 .thirdSlide__text {
@@ -8330,7 +8337,6 @@ padding-top:350px;
   padding-right: 100px;
 }
 .fourthSlide__icon {
-  margin-top: 130px;
   margin-bottom: 60px;
 }
 .fourthSlide__text {
@@ -8350,11 +8356,13 @@ padding-top:350px;
 .fourthSlide__mapTitle span {
   color: #bb815b;
 }
+.fifthSlide .col-lg-4 {
+  padding-left: 0;
+}
 .fifthSlide__rightBlock {
   padding-left: 50px;
 }
 .fifthSlide__icon {
-  margin-top: 130px;
   margin-bottom: 60px;
 }
 .fifthSlide__text {
@@ -8767,6 +8775,10 @@ padding-top:350px;
   text-decoration: none;
   color: white;
 }
+.contacts__button:focus {
+  text-decoration: none;
+  color: white;
+}
 .videocarousel .carousel-inner > .item.active,
 .videocarousel .carousel-inner > .item.next.left,
 .videocarousel .carousel-inner > .item.prev.right,
@@ -9139,7 +9151,7 @@ padding-top:350px;
   outline: 0;
 }
 .modalDialog__textarea {
-  height: 200px;
+  height: 100px;
   width: 100%;
   border: 1px solid #eaba9a;
   resize: none;
